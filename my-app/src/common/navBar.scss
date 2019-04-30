@@ -1,0 +1,64 @@
+.mainBar {
+    width: 100%;
+    flex: 100;
+    flex-direction: row !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.navButton {
+    font-size: 20px !important;
+    flex: 20;
+    height: 100px;
+    color: white !important;
+    transition:
+        background-color250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ,
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ,
+        background-color 250ms ease-in !important;
+    background-color: transparent;
+    &-selected {
+        background-color: gray !important;
+    }
+}
+
+.FAQButton {
+    font-size: 20px !important;
+    flex: 20;
+    height: 100px;
+    color: white !important;
+    transition:
+            background-color250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ,
+            box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ,
+            border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ,
+            background-color 250ms ease-in !important;
+}
+
+.menuButton {
+    flex: 10;
+    color: white !important;
+    height: 100px;
+}
+
+
+@media screen and (max-width: 1045px) {
+    .menuButton {
+        height: 40px;
+        font-size: 15px !important;
+    }
+
+    .mainBar {
+        flex-direction: column !important;
+    }
+
+    .navButton {
+        height: 40px;
+        font-size: 15px !important;
+    }
+
+    .FAQButton {
+        height: 40px;
+        font-size: 15px !important;
+        flex: 1;
+    }
+}

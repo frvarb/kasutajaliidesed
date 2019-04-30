@@ -1,75 +1,53 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import withRoot from '../withRoot';
-import ButtonAppBar from '../navBar';
-import CatCard from '../catCard';
-import Background from '../animal-cat-cute-37337.jpg';
+import React, {Component} from 'react'
+import ButtonAppBar from '../components/navBar'
+import Main from './Main'
+import Background from "../pictures/animal-cat-cute-37337.jpg";
+import PropTypes from "prop-types";
+import {withStyles} from "@material-ui/core";
+import "../common/app.scss";
+import {BrowserRouter} from "react-router-dom";
 
 const styles = theme => ({
     root: {
         backgroundImage: `url(${Background})`,
-        height: '1080px',
+        position: 'relative',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
     },
-    margin: {
-        flex: 1,
-        width: "90em",
+    content: {
         marginLeft: 'auto',
         marginRight: 'auto',
-    },
-    padding: {
-        padding: theme.spacing.unit * 2,
-    },
-    container: {
-        flex: 1,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(12, 1fr)',
-        gridGap: `${theme.spacing.unit * 3}px`,
+        maxWidth: '1400px',
+        width: '90%',
+        color: 'white',
+        textAlign: 'center',
+        paddingRight: '5%',
+        paddingLeft: '5%',
     },
 });
 
-class Index extends React.Component {
-    state = {
-        open: false,
-    };
-
+class App extends Component {
     render() {
-        const { classes } = this.props;
-        const { open } = this.state;
-
+        const {classes} = this.props;
         return (
-            <div className={classes.root}>
-                <ButtonAppBar/>
-                <div className={classes.margin}>
-                    <Grid container>
-                        <Grid item xs>
-                            <CatCard/>
-                            <br/>
-                            <CatCard/>
-                        </Grid>
-                        <Grid item xs>
-                            <CatCard/>
-                            <br/>
-                            <CatCard/>
-                        </Grid>
-                        <Grid item xs>
-                            <CatCard/>
-                            <br/>
-                            <CatCard/>
-                        </Grid>
-                    </Grid>
+            <BrowserRouter>
+                <div className={ classes.root }>
+                    <ButtonAppBar className={ classes.content }/>
+                    <br/>
+                    <div className={ classes.content }>
+                        <Main/>
+                    </div>
                 </div>
-            </div>
+            </BrowserRouter>
         );
     }
 }
 
-Index.propTypes = {
+
+App.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(Index));
+export default withStyles(styles)(App);
